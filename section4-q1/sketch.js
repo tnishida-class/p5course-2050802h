@@ -7,7 +7,7 @@ function setup(){
   // 配列をランダムに初期化する
   let scores = [];
   for(let i = 0; i < 10; i++){
-    scores[i] = random(20, 100); // 60以上100未満のランダムな数を代入
+    scores[i] = random(20, 100); // 20以上100未満のランダムな数を代入
   }
 
   // 横線を引く
@@ -19,6 +19,10 @@ function setup(){
   const dx = width / scores.length;
   let px, py; // 線を引くために一つ前の点を覚えておく変数
   for(let i = 0; i < scores.length; i++){
+    strokeWeight(2)
+    line((i + 0.5) * dx, height - (height * scores[i] / 100), (i + 1.5) * dx, height - (height * scores[i+1] / 100))
+    strokeWeight(10)
+    point((i + 0.5) * dx, height - (height * scores[i] / 100))
     // BLANK[1]
   }
 }
